@@ -1,22 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// function formatName2(user) {
-//     return user.firstName + ' ' + user.lastName;
-//   }
-//   const user = {
-//     firstName: 'Hartrgper',
-//     lastName: 'Perez'
-//   };
-//   function formatName(){
-//     const element = (
-//     <h1>
-//       Hello, {formatName2(user)}
-//     </h1>
-
-//   );
-// return element;
-// }
-
+ 
 function formatName(user) {
    
 
@@ -28,12 +12,11 @@ function formatName(user) {
       );
     
     return element;
-
-
-
-
-
   }
+ 
+
+  
+
 
 
 export default formatName;

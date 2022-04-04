@@ -10,83 +10,64 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+ 
+
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // function Clock(props) {
-//   return (
-//     <div>
-//       <h1>Hello, world!</h1>
-//       <h2>It is {props.date.toLocaleTimeString()}.</h2>
-//     </div>
-//   );
+   
+   
 // }
 
 // function tick() {
 //   root.render(<Clock date={new Date()} />);
+//   // root.render(<Clock />);
+
 // }
-
-
 
 // setInterval(tick, 1000);
 
-// class Clock extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h1>Hello, world!</h1>
-//         <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
-//       </div>
-//     );
-//   }
-// }
 
-
-
-// class Clock extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h1>Hello, world!</h1>
-//         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-//       </div>
-//     );
-//   }
-// }
-
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+// class Test extends React.Component {    
+//   constructor() {    
+//       this.state = {      
+//           id: 1,      
+//           name: "test"    
+//       };  
+//   }    
   
-// function tick() {
-//   const element = (
-//     <div>
-//       <h1>Hello, world!</h1>
-//       <h2>It is {new Date().toLocaleTimeString()}.</h2>
-//     </div>
-//   );
-//   root.render(element);
+//   render() {    
+//       return (      
+//           <div>        
+//             <p>{this.state.id}</p>        
+//             <p>{this.state.name}</p>      
+//           </div>    
+//       );  
+//   }
 // }
-
-// setInterval(tick, 1000);
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-function Clock(props) {
-   
-   
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: "red"};
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {favoritecolor: props.favcol };
+  }
+  changeColor = () => {
+    this.setState({favoritecolor: "blue"});
+  }
+  render() {
+    return (
+      <div>
+      <h1>My Favorite Color is {this.state.favoritecolor}</h1>
+      <button type="button" onClick={this.changeColor}>Change color</button>
+      </div>
+    );
+  }
 }
 
-function tick() {
-  root.render(<Clock date={new Date()} />);
-  // root.render(<Clock />);
-
-}
-
-setInterval(tick, 1000);
+ReactDOM.render(<Header favcol="yellow"/>, document.getElementById('root'));
 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
